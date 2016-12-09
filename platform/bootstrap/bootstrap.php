@@ -148,7 +148,11 @@ if (PLATFORMDESTROY == '' || !is_file(PLATFORMDESTROY)) {
     exit(3); // EXIT_CONFIG
 }
 
-define('APPSPATH', PLATFORMPATH.'applications/');
+if (!isset($APPSPATH)) {
+    define('APPSPATH', PLATFORMPATH.'applications/');
+} else {
+    define('APPSPATH', $APPSPATH.'/');
+}
 
 // Check the path to the "applications" directory.
 if (!is_dir(APPSPATH)) {
