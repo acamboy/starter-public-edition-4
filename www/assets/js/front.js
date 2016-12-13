@@ -10,11 +10,30 @@ $(function () {
           .transition('fade')
         ;
     });
-;
+
+    $('.ui.accordion')
+      .accordion()
+    ;
+
+    $('.popover').popup({ 'on': Modernizr.touch ? 'click' : 'hover' });
+
     $('#main_navigation .menu.toggle').on("click", function(e) {
 
         e.preventDefault();
-        $('#main_navigation .ui.vertical.menu').toggle();
+
+        //$('#main_navigation .ui.vertical.menu').toggle();
+        var menu = $('#main_navigation .ui.vertical.menu');
+        menu.transition({
+            animation: 'slide down',
+            onComplete : function() {
+
+                if (menu.hasClass('hidden')) {
+                    menu.hide();
+                } else {
+                    menu.show();
+                }
+            }
+        });
     });
 });
 

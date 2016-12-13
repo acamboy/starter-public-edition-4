@@ -324,7 +324,7 @@ The copied files can be modified/customized. See https://github.com/ivantcholako
 * CodeIgniter Cache Helper, https://github.com/stevenbenner/codeigniter-cache-helper
 * auto_link() helper accepts attributes, https://github.com/bcit-ci/CodeIgniter/wiki/auto-link
 * Menu Library, https://github.com/nihaopaul/Spark-Menu, https://github.com/Barnabas/Spark-Menu (the original spark-source), https://github.com/daylightstudio/FUEL-CMS/blob/master/fuel/modules/fuel/libraries/Menu.php
-* Function print_d() (enhanced debug print), https://github.com/vikerlane/print_d
+* Function print_d() (enhanced debug print), ~~https://github.com/vikerlane/print_d~~ https://github.com/CesiumComputer/print_d
 * Registry library for CodeIgniter, https://github.com/ivantcholakov/codeigniter-registry
 * jQuery Validation Plugin, http://jqueryvalidation.org/
 * Extended JavaScript regular expressions XRegExp, http://xregexp.com/
@@ -367,6 +367,7 @@ The copied files can be modified/customized. See https://github.com/ivantcholako
 * A collection of HTTP related packages (HTTPlug), https://github.com/php-http , http://httplug.io
 * jQuery keepalive Plugin, sends ajax requests to the server at configurable intervals to keep a PHP session from expiring, https://github.com/waynewalls/jquery.keepalive
 * CSS & JavaScript minifier, in PHP, https://github.com/matthiasmullie/minify , http://www.minifier.org
+* SweetAlert, a beautiful replacement for JavaScript's "alert", https://github.com/t4t5/sweetalert , http://t4t5.github.io/sweetalert/
 
 The Playground
 --------------
@@ -415,6 +416,7 @@ Reported by Webnice Ltd., http://webnicebg.com
 * http://mycity.bg/ - a virtual tourist guide
 * http://vonleart.com - wedding photography
 * http://spa-rusalka.com - a SPA-hotel
+* http://polypoolsbg.com - a FiberGlass pools provider
 
 Reported by Krishna Guragai, @krishnaguragain
 

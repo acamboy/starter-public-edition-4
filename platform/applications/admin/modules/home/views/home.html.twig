@@ -12,3 +12,31 @@
 
 {{ widget('home/quick_buttons_widget/index') }}
 
+            <div class="ui hidden divider"></div>
+            <p>
+                <button class="ui button" id="test_4">A success message</button>
+            </p>
+            <script type="text/javascript">
+            //<![CDATA[
+
+            (function($) {
+
+                $('#test_4').on('click', function() {
+
+                    swal("Good job!", "You clicked the button!", "success");
+                });
+
+            })(jQuery);
+
+            //]]>
+            </script>
+
+            <p>
+                <a href="javascript://"
+                   class="popover"
+                   data-html="You see a popup here."
+                   data-variation="wide"
+                >
+                    <i class="help circle icon"></i> A popup test
+                </a>
+            </p>
