@@ -93,7 +93,15 @@
         $("#datatable thead input[type=text]").on('keyup change', function () {
 
             table
-                .column($(this).parent().index() + ':visible')
+                .column($(this).closest('td').index() + ':visible')
+                .search(this.value)
+                .draw();
+        });
+
+        $("#datatable thead select").on('change', function () {
+
+            table
+                .column($(this).closest('td').index() + ':visible')
                 .search(this.value)
                 .draw();
         });

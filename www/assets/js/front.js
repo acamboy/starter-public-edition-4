@@ -1,7 +1,34 @@
 
 $(function () {
 
-    $('.ui.dropdown').dropdown();
+    // A workaround about dropdown initialization.
+    // See https://github.com/Semantic-Org/Semantic-UI/issues/2072
+    // "[Dropdown] Add Nullable Option for Single Selection"
+
+    $('.ui.dropdown:not(.native)[multiple]').dropdown();
+    $('.ui.dropdown:not(.native):not([multiple]):not(.nullable)').dropdown();
+    $('.ui.dropdown:not(.native):not([multiple]).nullable').dropdown({
+        onChange: function(value) {
+
+            var target = $(this);
+            var wrapper = target.prop('tagName') == 'SELECT' ? target.parent() : target;
+
+            if (value) {
+
+                var icon = wrapper.find('.dropdown.icon');
+
+                icon.removeClass('dropdown').addClass('delete').on('click', function(e) {
+
+                    target.dropdown('clear');
+                    $(this).removeClass('delete').addClass('dropdown');
+
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        },
+        fireOnInit: true
+    });
 
     $('body').on('click', '.message .close', function() {
 
@@ -10,11 +37,30 @@ $(function () {
           .transition('fade')
         ;
     });
-;
+
+    $('.ui.accordion')
+      .accordion()
+    ;
+
+    $('.popover').popup({ 'on': Modernizr.touch ? 'click' : 'hover' });
+
     $('#main_navigation .menu.toggle').on("click", function(e) {
 
         e.preventDefault();
-        $('#main_navigation .ui.vertical.menu').toggle();
+
+        //$('#main_navigation .ui.vertical.menu').toggle();
+        var menu = $('#main_navigation .ui.vertical.menu');
+        menu.transition({
+            animation: 'slide down',
+            onComplete : function() {
+
+                if (menu.hasClass('hidden')) {
+                    menu.hide();
+                } else {
+                    menu.show();
+                }
+            }
+        });
     });
 });
 

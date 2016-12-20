@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b61fccb7fe83f9ef9f1590d3f3eb4c07",
-    "content-hash": "cf475eefd421f1f525794139a9a8fa82",
+    "hash": "072e02568ab84e9a10d3178a813fcda7",
+    "content-hash": "97b6c4f98bbe67cca18ebd98329aad41",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1006,16 +1006,16 @@
         },
         {
             "name": "php-http/message",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "20ffbdc291a127e93f66007742693fbdf020d223"
+                "reference": "bfd895a4e753bdde99bed64d75b999e0c9fa6147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/20ffbdc291a127e93f66007742693fbdf020d223",
-                "reference": "20ffbdc291a127e93f66007742693fbdf020d223",
+                "url": "https://api.github.com/repos/php-http/message/zipball/bfd895a4e753bdde99bed64d75b999e0c9fa6147",
+                "reference": "bfd895a4e753bdde99bed64d75b999e0c9fa6147",
                 "shasum": ""
             },
             "require": {
@@ -1071,7 +1071,7 @@
                 "message",
                 "psr-7"
             ],
-            "time": "2016-10-20 06:59:05"
+            "time": "2016-12-16 21:09:21"
         },
         {
             "name": "php-http/message-factory",
@@ -1172,6 +1172,66 @@
                 "promise"
             ],
             "time": "2016-01-26 13:27:02"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v5.2.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "208913c6042967ba404f4bfa0819bf5bef79dbec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/208913c6042967ba404f4bfa0819bf5bef79dbec",
+                "reference": "208913c6042967ba404f4bfa0819bf5bef79dbec",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "suggest": {
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.phpmailer.php",
+                    "class.phpmaileroauth.php",
+                    "class.phpmaileroauthgoogle.php",
+                    "class.smtp.php",
+                    "class.pop3.php",
+                    "extras/EasyPeasyICS.php",
+                    "extras/ntlm_sasl_client.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2016-12-09 10:03:48"
         },
         {
             "name": "pixel418/markdownify",
@@ -1380,12 +1440,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "5560bd95c22a4ccf9404d8f176fceb4812a7398e"
+                "reference": "4c6b8ff984571203431e6116d2bdfaccc764d942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/5560bd95c22a4ccf9404d8f176fceb4812a7398e",
-                "reference": "5560bd95c22a4ccf9404d8f176fceb4812a7398e",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4c6b8ff984571203431e6116d2bdfaccc764d942",
+                "reference": "4c6b8ff984571203431e6116d2bdfaccc764d942",
                 "shasum": ""
             },
             "conflict": {
@@ -1435,7 +1495,8 @@
                 "silverstripe/framework": ">=3,<3.3",
                 "silverstripe/userforms": "<3",
                 "simplesamlphp/saml2": ">=1.9,<1.9.1|>=1.10,<1.10.3|>=2.3,<2.3.3",
-                "simplesamlphp/simplesamlphp": "<1.14.10",
+                "simplesamlphp/simplesamlphp": "<1.14.4",
+                "simplesamlphp/simplesamlphp-module-infocard": "<1.0.1",
                 "socalnick/scn-social-auth": "<1.15.2",
                 "swiftmailer/swiftmailer": ">=4,<4.99.99|>=5,<5.2.1",
                 "symfony/dependency-injection": ">=2,<2.0.17",
@@ -1502,11 +1563,11 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2016-12-06 13:29:26"
+            "time": "2016-12-13 08:08:47"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -1657,16 +1718,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.28.2",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c"
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b22ce0eb070e41f7cba65d78fe216de29726459c",
-                "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/74f723e542368ca2080b252740be5f1113ebb898",
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898",
                 "shasum": ""
             },
             "require": {
@@ -1679,7 +1740,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.28-dev"
+                    "dev-master": "1.29-dev"
                 }
             },
             "autoload": {
@@ -1714,7 +1775,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-11-23 18:41:40"
+            "time": "2016-12-13 17:28:18"
         },
         {
             "name": "whichbrowser/parser",
