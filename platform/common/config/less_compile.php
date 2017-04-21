@@ -56,21 +56,6 @@ $config['less_compile'] = array(
         'compress' => true
     ),
 
-    // php cli.php less compile font-awesome-4-actions font-awesome-4-actions-min
-
-    array(
-        'name' => 'font-awesome-4-actions',
-        'source' => DEFAULTFCPATH.'assets/less/lib/font-awesome-4-actions/font-awesome.less',
-        'destination' => DEFAULTFCPATH.'assets/css/lib/font-awesome-4-actions/font-awesome.css',
-        'compress' => false
-    ),
-    array(
-        'name' => 'font-awesome-4-actions-min',
-        'source' => DEFAULTFCPATH.'assets/less/lib/font-awesome-4-actions/font-awesome.less',
-        'destination' => DEFAULTFCPATH.'assets/css/lib/font-awesome-4-actions/font-awesome.min.css',
-        'compress' => true
-    ),
-
     // php cli.php less compile material-icons material-icons-min
 
     array(
@@ -83,6 +68,53 @@ $config['less_compile'] = array(
         'name' => 'material-icons-min',
         'source' => DEFAULTFCPATH.'assets/less/lib/material-icons/material-icons.less',
         'destination' => DEFAULTFCPATH.'assets/css/lib/material-icons/material-icons.min.css',
+        'compress' => true
+    ),
+
+    // php cli.php less compile slick slick-min slick-font slick-font-min slick-theme slick-theme-min
+
+    array(
+        'name' => 'slick',
+        'source' => DEFAULTFCPATH.'assets/less/lib/slick/slick.less',
+        'destination' => DEFAULTFCPATH.'assets/css/lib/slick/slick.css',
+        'relativeUrls' => false,
+        'compress' => false
+    ),
+    array(
+        'name' => 'slick-min',
+        'source' => DEFAULTFCPATH.'assets/less/lib/slick/slick.less',
+        'destination' => DEFAULTFCPATH.'assets/css/lib/slick/slick.min.css',
+        'relativeUrls' => false,
+        'compress' => true
+    ),
+
+    array(
+        'name' => 'slick-font',
+        'source' => DEFAULTFCPATH.'assets/less/lib/slick/slick-font.less',
+        'destination' => DEFAULTFCPATH.'assets/css/lib/slick/slick-font.css',
+        'relativeUrls' => false,
+        'compress' => false
+    ),
+    array(
+        'name' => 'slick-font-min',
+        'source' => DEFAULTFCPATH.'assets/less/lib/slick/slick-font.less',
+        'destination' => DEFAULTFCPATH.'assets/css/lib/slick/slick-font.min.css',
+        'relativeUrls' => false,
+        'compress' => true
+    ),
+
+    array(
+        'name' => 'slick-theme',
+        'source' => DEFAULTFCPATH.'assets/less/lib/slick/slick-theme.less',
+        'destination' => DEFAULTFCPATH.'assets/css/lib/slick/slick-theme.css',
+        'relativeUrls' => false,
+        'compress' => false
+    ),
+    array(
+        'name' => 'slick-theme-min',
+        'source' => DEFAULTFCPATH.'assets/less/lib/slick/slick-theme.less',
+        'destination' => DEFAULTFCPATH.'assets/css/lib/slick/slick-theme.min.css',
+        'relativeUrls' => false,
         'compress' => true
     ),
 
@@ -261,6 +293,18 @@ $config['less_compile'] = array(
         'name' => 'front-semantic-ui-material-min',
         'source' => DEFAULTFCPATH.'themes/front_semantic_ui_material/less/index.less',
         'destination' => DEFAULTFCPATH.'themes/front_semantic_ui_material/css/front.min.css',
+        'relativeUrls' => false,
+        'implementation' => 'less.js',
+        'autoprefixer' => array('browsers' => array('> 1%', 'last 2 versions', 'Firefox ESR', 'Safari >= 7', 'iOS >= 7', 'ie >= 11', 'Edge >= 12', 'Android >= 4')),
+        'cssmin' => array('implementation' => 'minifycss'),
+    ),
+
+    // php cli.php less compile front-default-min
+
+    array(
+        'name' => 'front-default-min',
+        'source' => DEFAULTFCPATH.'themes/front_default/less/index.less',
+        'destination' => DEFAULTFCPATH.'themes/front_default/css/front.min.css',
         'relativeUrls' => false,
         'implementation' => 'less.js',
         'autoprefixer' => array('browsers' => array('> 1%', 'last 2 versions', 'Firefox ESR', 'Safari >= 7', 'iOS >= 7', 'ie >= 11', 'Edge >= 12', 'Android >= 4')),

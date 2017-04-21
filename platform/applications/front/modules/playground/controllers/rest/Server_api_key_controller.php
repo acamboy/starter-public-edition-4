@@ -2,6 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Restserver\Libraries\REST_Controller;
+
 /**
  * Keys Controller
  * This is a basic Key Management REST controller to make and delete keys
@@ -44,6 +46,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => TRUE,
                 'key' => $key
             ), REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
+
+            return;
         }
         else
         {
@@ -51,6 +55,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Could not save the key'
             ), REST_Controller::HTTP_INTERNAL_SERVER_ERROR); // INTERNAL_SERVER_ERROR (500) being the HTTP response code
+
+            return;
         }
     }
 
@@ -72,6 +78,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Invalid API key'
             ), REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+
+            return;
         }
 
         // Destroy it
@@ -82,6 +90,8 @@ class Restserver_api_key_controller extends REST_Controller {
             'status' => TRUE,
             'message' => 'API key was deleted'
             ), REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
+
+            return;
     }
 
     /**
@@ -103,6 +113,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Invalid API key'
             ), REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+
+            return;
         }
 
         // Update the key level
@@ -112,6 +124,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => TRUE,
                 'message' => 'API key was updated'
             ), REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+
+            return;
         }
         else
         {
@@ -119,6 +133,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Could not update the key level'
             ), REST_Controller::HTTP_INTERNAL_SERVER_ERROR); // INTERNAL_SERVER_ERROR (500) being the HTTP response code
+
+            return;
         }
     }
 
@@ -140,6 +156,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Invalid API key'
             ), REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+
+            return;
         }
 
         // Update the key level
@@ -149,6 +167,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => TRUE,
                 'message' => 'Key was suspended'
             ), REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+
+            return;
         }
         else
         {
@@ -156,6 +176,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Could not suspend the user'
             ), REST_Controller::HTTP_INTERNAL_SERVER_ERROR); // INTERNAL_SERVER_ERROR (500) being the HTTP response code
+
+            return;
         }
     }
 
@@ -178,6 +200,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Invalid API key'
             ), REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+
+            return;
         }
 
         // Build a new key
@@ -193,6 +217,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => TRUE,
                 'key' => $new_key
             ), REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
+
+            return;
         }
         else
         {
@@ -200,6 +226,8 @@ class Restserver_api_key_controller extends REST_Controller {
                 'status' => FALSE,
                 'message' => 'Could not save the key'
             ), REST_Controller::HTTP_INTERNAL_SERVER_ERROR); // INTERNAL_SERVER_ERROR (500) being the HTTP response code
+
+            return;
         }
     }
 

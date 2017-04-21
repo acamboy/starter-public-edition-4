@@ -31,6 +31,13 @@ if (!function_exists('redirect'))
         switch ($method)
         {
             case 'refresh':
+                // Added by Ivan Tcholakov, 06-MAR-2017. This is a workaround.
+                header('Expires: Sat, 01 Jan 2000 00:00:01 GMT', true);
+                header('Cache-Control: no-store, no-cache, must-revalidate', true);
+                header('Cache-Control: post-check=0, pre-check=0, max-age=0', false);
+                header('Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT', true);
+                header('Pragma: no-cache', true);
+                //
                 header('Refresh:0;url='.$uri);
                 break;
             default:
@@ -226,7 +233,7 @@ if ( ! function_exists('auto_link'))
      * use:  auto_link($string, 'email', array('class' => 'email_link' , 'style' => 'color:red;'));
      * use(legacy): auto_link($string, 'url' , TRUE);
      *
-     * @link https://github.com/EllisLab/CodeIgniter/wiki/auto-link
+     * @link https://github.com/bcit-ci/CodeIgniter/wiki/auto-link
      * @author Derek Jones (original author)
      * @author Ivan Tcholakov (adaptation)
      *
@@ -239,14 +246,6 @@ if ( ! function_exists('auto_link'))
      */
     function auto_link($str, $type = 'both', $attributes = '')
     {
-        static $html_helper_loaded = null;
-
-        if ($html_helper_loaded !== true)
-        {
-            get_instance()->load->helper('html');
-            $html_helper_loaded = true;
-        }
-
         // MAKE THE THIRD ARGUMENT BACKWARD COMPATIBLE
         // here we deal with the original third argument $pop
         // which could be TRUE or FALSE, and was FALSE by default.
@@ -261,13 +260,13 @@ if ( ! function_exists('auto_link'))
 
         if (!empty($attributes))
         {
-            $attributes = html_attr($attributes);
+            $attributes = _stringify_attributes($attributes);
         }
 
         // Find and replace any URLs.
-        // Modified by Ivan Tcholakov, 19-DEC-2013.
+        // Modified by Ivan Tcholakov, 19-DEC-2013, 09-MAR-2017.
         //if ($type !== 'email' && preg_match_all('#(\w*://|www\.)[^\s()<>;]+\w#i', $str, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER))
-        if ($type !== 'email' && preg_match_all('#(\w*://|www\.)[^\s()<>;]+(\w|/)#i', $str, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER))
+        if ($type !== 'email' && preg_match_all('#(\w*://|www\.)[^\s()<>;]+(\w|/)#i'.(UTF8_ENABLED ? 'u' : ''), $str, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER))
         //
         {
             // We process the links in reverse order (last -> first) so that
@@ -382,12 +381,13 @@ if (!function_exists('gmap_url')) {
      * @param   float       $longitude          The location's longitude.
      * @param   int         $zoom               The map zooming.
      * @param   boolean     $show_marker        TRUE - show a marker at the location, FALSE - don't show a marker.
+     * @param   string      $marker_name        The name associated with the marker (an address for example)
      * @return  string                          Returns a link to be opened with a browser.
      *
-     * @author Ivan Tcholakov <ivantcholakov@gmail.com>, 2015
+     * @author Ivan Tcholakov <ivantcholakov@gmail.com>, 2015-2017
      * @license The MIT License, http://opensource.org/licenses/MIT
      */
-    function gmap_url($latitude, $longitude, $zoom = null, $show_marker = true) {
+    function gmap_url($latitude, $longitude, $zoom = null, $show_marker = true, $marker_name = null) {
 
         $latitude = trim($latitude);
         $longitude = trim($longitude);
@@ -403,10 +403,20 @@ if (!function_exists('gmap_url')) {
         }
 
         $show_marker = !empty($show_marker);
+        $marker_name = @ (string) $marker_name;
 
         if ($show_marker) {
-            $result = "https://www.google.com/maps/place/$latitude+$longitude/@$latitude,$longitude,{$zoom}z";
+
+            if ($marker_name == '') {
+                $marker_name = "$latitude,$longitude";
+            }
+
+            $marker_name = urlencode($marker_name);
+
+            $result = "https://www.google.com/maps/place/$marker_name/@$latitude,$longitude,{$zoom}z";
+
         } else {
+
             $result = "https://www.google.com/maps/@$latitude,$longitude,{$zoom}z";
         }
 

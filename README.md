@@ -47,6 +47,7 @@ After such a rearrangement open the file config.php (www/config.php before rearr
 The following directories (the locations are the original) must have writable access:
 
 ```
+platform/upload/
 platform/writable/
 www/cache/
 www/editor/
@@ -59,6 +60,73 @@ Have a look at their configuration files. Also, the common PHP configuration fil
 
 The platform auto-detects its base URL address nevertheless its public part is on the document root of the web-server or not.
 I don't expect you to be forced to set it up manually within platform/common/config/config.php.
+
+Installation on a developer's machine
+-------------------------------------
+
+In addition to the section above, it is desirable on a developer's machine
+additional components to be installed globally, they are mostly to support
+compilation of web resources (for example: less -> css, ts -> js). The system
+accesses them using PHP command-shell functions.
+
+When installing the additional components globally, the command-line console would
+require administrative privileges.
+
+* Install Node.js and npm, for example see https://docs.npmjs.com/getting-started/installing-node
+As a result, from the command line these commands should work:
+
+```sh
+node -v
+npm -v
+```
+
+* Install less.js compiler (http://lesscss.org/) globally:
+
+```sh
+npm install less -g
+```
+
+Then the following command should work:
+
+```sh
+lessc -v
+```
+
+* Install PostCSS and its CLI utility (https://github.com/postcss/postcss-cli) globally:
+
+```sh
+npm -g install postcss-cli
+```
+
+And this command should work:
+
+```sh
+postcss -v
+```
+
+* Install Autoprefixer (https://github.com/postcss/autoprefixer) globally:
+
+```sh
+npm -g install autoprefixer
+```
+
+* Install cssnano (https://github.com/ben-eb/cssnano):
+
+```sh
+npm -g install cssnano
+```
+
+* Install TypeScript compiler (if it is needed):
+
+```sh
+npm -g install typescript-compiler
+```
+
+This command should work:
+
+```sh
+tsc -v
+```
 
 Coding Rules
 ------------
@@ -126,7 +194,6 @@ The technique of this hack is available, but it is not mandatory.
 * UTF-8 string support for CodeIgniter based on Kohana's implementation, https://github.com/ivantcholakov/codeigniter-utf8
 * PHP fallback function http_build_url(), https://github.com/ivantcholakov/http_build_url
 * Core_Model, see https://github.com/ivantcholakov/codeigniter-base-model
-* Some basic javascripts.
 * normalize.css, a collection of HTML element and attribute style-normalizations, https://github.com/necolas/normalize.css
 * Modernizr, a JavaScript library that detects HTML5 and CSS3 features in the user’s browser, http://modernizr.com
 * html5shiv.js and html5shiv-printshiv.js (separate, packed within Modernizr too) - The HTML5 Shiv enables use of HTML5 sectioning elements in legacy Internet Explorer and provides basic HTML5 styling for Internet Explorer 6-9, Safari 4.x (and iPhone 3.x), and Firefox 3.x., https://github.com/aFarkas/html5shiv
@@ -358,16 +425,19 @@ The copied files can be modified/customized. See https://github.com/ivantcholako
 * Twig, the flexible, fast, and secure template engine for PHP, http://twig.sensiolabs.org
 * PHP 5.x support for random_bytes() and random_int(), https://github.com/paragonie/random_compat
 * WhichBrowser/Parser, a useragent parser library for PHP, https://github.com/WhichBrowser/Parser
-* Font Awesome actions font (a superset), https://github.com/nyon/fontawesome-actions
 * iHover, a collection of hover effects using pure CSS, https://github.com/gudh/ihover
 * imagesLoaded - "You images done yet or what?", https://github.com/desandro/imagesloaded
 * Masonry - a cascading grid layout library, https://github.com/desandro/masonry
-* jQuery LoadingOverlay - A flexible loading overlay jQuery plugin, https://github.com/gasparesganga/jquery-loading-overlay
 * Semantic UI - a component framework based around useful principles from natural language, http://www.semantic-ui.com
 * A collection of HTTP related packages (HTTPlug), https://github.com/php-http , http://httplug.io
 * jQuery keepalive Plugin, sends ajax requests to the server at configurable intervals to keep a PHP session from expiring, https://github.com/waynewalls/jquery.keepalive
 * CSS & JavaScript minifier, in PHP, https://github.com/matthiasmullie/minify , http://www.minifier.org
 * SweetAlert, a beautiful replacement for JavaScript's "alert", https://github.com/t4t5/sweetalert , http://t4t5.github.io/sweetalert/
+* Handlebars.js - an extension to the Mustache templating language, https://github.com/wycats/handlebars.js , http://handlebarsjs.com
+* Handlebars.php - Handlebars processor for PHP, https://github.com/XaminProject/handlebars.php
+* Slick, the last carousel you'll ever need, https://github.com/kenwheeler/slick , http://kenwheeler.github.io/slick/
+* Intervention Image - a PHP image handling and manipulation library, https://github.com/Intervention/image
+* Letter Avatar for PHP - generate user avatar using name initials letter, https://github.com/yohang88/letter-avatar
 
 The Playground
 --------------
@@ -402,6 +472,10 @@ Real Life Usage
 * http://liveconsult.eu (training about business or personal relations), designer: Irina Stancheva
 * http://hop-mebeli.com/ - an online shop, furniture, migrated from starter-public-edition-3, designer: Irina Stancheva
 * http://iridadesign.com (we), designer: Irina Stancheva
+* http://profitherm.bg - water pumps supplier, designer: Irina Stancheva (Semantic UI based design)
+* http://art-tochka.com/ - an online shop, gifts, migrated from starter-public-edition-3, designer: Irina Stancheva (still Bootstrap-based design)
+* http://viapontica123.bg - a small hotel, designer: Irina Stancheva
+* http://ivetfashion.com - a model management company, designer: Irina Stancheva
 
 Reported by Webnice Ltd., http://webnicebg.com
 
@@ -418,6 +492,12 @@ Reported by Webnice Ltd., http://webnicebg.com
 * http://spa-rusalka.com - a SPA-hotel
 * http://polypoolsbg.com - a FiberGlass pools provider
 * http://ruseplasticsurgery.com - plastic surgery
+* http://tciships.com/ - logistics
+* http://matracimore.com - a provider of mattresses
+* http://freshway-bg.com - an air fresheners provider
+* http://rosifashion.com - a womenswear provider
+* http://shop.rosifashion.com - a womenswear shop
+* http://mkferavita.com - herbal products
 
 Reported by Krishna Guragai, @krishnaguragain
 
@@ -439,7 +519,7 @@ License Information
 -------------------
 
 For original code in this project:  
-Copyright (c) 2012 - 2015:  
+Copyright (c) 2012 - 2017:  
 Ivan Tcholakov (the initial author) ivantcholakov@gmail.com,  
 Gwenaël Gallon.  
 License: The MIT License (MIT), http://opensource.org/licenses/MIT

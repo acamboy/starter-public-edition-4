@@ -97,7 +97,14 @@ class Modules
     /** Load a module controller **/
     public static function load($module) {
 
-        (is_array($module)) ? list($module, $params) = each($module) : $params = NULL;
+        // Modified by Ivan Tcholakov, 21-JAN-2017.
+        //(is_array($module)) ? list($module, $params) = each($module) : $params = NULL;
+        if (is_array($module)) {
+            list($params, $module) = array(reset($module), key($module));
+        } else {
+            $params = NULL;
+        }
+        //
 
         //
         // Removed by Ivan Tcholakov, 03-APR-2014.
@@ -287,6 +294,12 @@ class Modules
                 if ($base == 'libraries/' AND is_file($fullpath.ucfirst($file_ext))) {
                     return array($fullpath, ucfirst($file));
                 }
+
+                // Added by Ivan Tcholakov, 17-FEB-2017.
+                if ($base == 'models/' AND is_file($fullpath.ucfirst($file_ext))) {
+                    return array($fullpath, ucfirst($file));
+                }
+                //
 
                 // Added by Ivan Tcholakov, 31-JAN-2015.
                 if ($base == 'helpers/' && is_file($fullpath.config_item('subclass_prefix').$file_ext)) {

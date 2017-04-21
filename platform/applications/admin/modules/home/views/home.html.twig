@@ -13,84 +13,96 @@
 {{ widget('home/quick_buttons_widget/index') }}
 
             <div class="ui hidden divider"></div>
-            <p>
-                <button class="ui button" id="test_4">A success message</button>
-            </p>
-            <script type="text/javascript">
-            //<![CDATA[
 
-            (function($) {
+            <div class="ui segment">
 
-                $('#test_4').on('click', function() {
+                <p>
+                    <form class="ui form">
 
-                    swal("Good job!", "You clicked the button!", "success");
-                });
+                        <div class="field">
 
-            })(jQuery);
+                            <label for="date_picker_test">
+                                * jQuery Date Picker Test (yyyy-mm-dd):
+                            </label>
 
-            //]]>
-            </script>
+                            <div class="ui left icon input">
+                                <input type="text" name="date_picker_test" id="date_picker_test"
+                                    value=""
+                                />
+                                <i class="calendar icon"></i>
+                            </div>
 
-            <p>
-                <a href="javascript://"
-                   class="popover"
-                   data-html="You see a popup here."
-                   data-variation="wide"
-                >
-                    <i class="help circle icon"></i> A popup test
-                </a>
-            </p>
+                        </div>
 
-            <p>
-                <form class="ui form">
+                    </form>
+                </p>
 
-                    <div class="field">
+                <p>
+                    <button class="ui button" id="test_4">A success message</button>
+                </p>
 
-                        <label for="smtp_crypto_1">SMTP Encryption (testing a native select box 1):</label>
+                <p>
+                    <a href="javascript://"
+                       class="popover"
+                       data-html="You see a popup here."
+                       data-variation="wide"
+                    >
+                        <i class="help circle icon"></i> A popup test
+                    </a>
+                </p>
 
-                        <select name="smtp_crypto" id="smtp_crypto_1" class="ui native dropdown">
-                            <option value="" selected="selected">-- none --</option>
-                            <option value="ssl">ssl</option>
-                            <option value="tls">tls</option>
-                        </select>
+                <p>
+                    <form class="ui form">
 
-                    </div>
+                        <div class="field">
 
-                </form>
-            </p>
+                            <label for="smtp_crypto_1">SMTP Encryption (testing a native select box 1):</label>
 
-            <p>
-                <form class="ui form">
+                            <select name="smtp_crypto" id="smtp_crypto_1" class="ui native dropdown">
+                                <option value="" selected="selected">-- none --</option>
+                                <option value="ssl">ssl</option>
+                                <option value="tls">tls</option>
+                            </select>
 
-                    <div class="field">
+                        </div>
 
-                        <label for="smtp_crypto_2">SMTP Encryption (testing a native select box 2):</label>
+                    </form>
+                </p>
 
-                        <select name="smtp_crypto" id="smtp_crypto_2" class="ui native selection dropdown">
-                            <option value="" selected="selected">-- none --</option>
-                            <option value="ssl">ssl</option>
-                            <option value="tls">tls</option>
-                        </select>
+                <p>
+                    <form class="ui form">
 
-                    </div>
+                        <div class="field">
 
-                </form>
-            </p>
+                            <label for="smtp_crypto_2">SMTP Encryption (testing a native select box 2):</label>
 
-            <p>
-                <form class="ui form">
+                            <select name="smtp_crypto" id="smtp_crypto_2" class="ui native selection dropdown">
+                                <option value="" selected="selected">-- none --</option>
+                                <option value="ssl">ssl</option>
+                                <option value="tls">tls</option>
+                            </select>
 
-                    <div class="field">
+                        </div>
 
-                        <label for="smtp_crypto">SMTP Encryption (testing a nullable dropdown):</label>
+                    </form>
+                </p>
 
-                        <select name="smtp_crypto" id="smtp_crypto" class="ui nullable selection dropdown">
-                            <option value="" selected="selected">-- none --</option>
-                            <option value="ssl">ssl</option>
-                            <option value="tls">tls</option>
-                        </select>
+                <p>
+                    <form class="ui form">
 
-                    </div>
+                        <div class="field">
 
-                </form>
-            </p>
+                            <label for="smtp_crypto">SMTP Encryption (testing a nullable dropdown):</label>
+
+                            <select name="smtp_crypto" id="smtp_crypto" class="ui nullable selection dropdown">
+                                <option value="" selected="selected">-- none --</option>
+                                <option value="ssl">ssl</option>
+                                <option value="tls">tls</option>
+                            </select>
+
+                        </div>
+
+                    </form>
+                </p>
+
+            </div>

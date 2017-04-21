@@ -17,7 +17,8 @@ $config['charset'] = null;
 // Caching: An absolute path where to store the compiled templates,
 // or FALSE to disable caching.
 // The constant TWIG_CACHE contains the usual path for Twig cache.
-$config['cache'] = ENVIRONMENT === 'production' ? TWIG_CACHE : FALSE;
+// An alternative example: $config['cache'] = ENVIRONMENT === 'production' ? TWIG_CACHE : FALSE;
+$config['cache'] = FALSE;
 
 // The default timezone to be used by Twig.
 $config['timezone'] = date_default_timezone_get();
@@ -33,6 +34,7 @@ $config['helpers'] = array(
     'language_extra',
     'template',
     'text',
+    'html',
     'url',
     'file',
 );
@@ -63,6 +65,7 @@ $config['functions'] = array(
     'file_exists',
     // CodeIgniter's Helpers
     array('is_https', 'is_https', array('is_safe' => array('html'))),
+    array('is_php', 'is_php', array('is_safe' => array('html'))),
     // Session
     array('session', array('Parser_Twig_Extension_Session', 'session')),
     array('session_flash', array('Parser_Twig_Extension_Session', 'session_flash')),
@@ -82,6 +85,7 @@ $config['functions'] = array(
     'url_add_data_language',
     array('view', array('Parser_Twig_Extension_Platform', 'view'), array('is_safe' => array('html'))),
     array('file_type_icon_fa', 'file_type_icon_fa', array('is_safe' => array('html', 'html_attr', 'js'))),
+    array('file_type_icon', 'file_type_icon', array('is_safe' => array('html', 'html_attr', 'js'))),
     // Web Assets
     array('css', array('Parser_Twig_Extension_Asset', 'css'), array('is_safe' => array('html'))),
     'css_path',
@@ -211,6 +215,7 @@ $config['filters'] = array(
     array('strpos', 'strpos', array('is_safe' => array('html'))),
     array('wordwrap', array('Parser_Twig_Extension_Php', 'wordwrap')),
     array('array_plus', array('Parser_Twig_Extension_Php', 'array_plus')),
+    array('array_replace', array('Parser_Twig_Extension_Php', 'array_replace')),
     // CodeIgniter's Helpers
     'character_limiter',
     'ellipsize',

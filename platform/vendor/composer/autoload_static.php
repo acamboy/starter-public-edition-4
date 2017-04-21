@@ -4,16 +4,16 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
+class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
 {
     public static $files = array (
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'ddc0a4d7e61c0286f0f8593b1903e894' => __DIR__ . '/..' . '/clue/stream-filter/src/functions.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
-        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '7e702cccdb9dd904f2ccf22e5f37abae' => __DIR__ . '/..' . '/facebook/php-sdk-v4/src/Facebook/polyfills.php',
     );
 
@@ -21,6 +21,10 @@ class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
         't' => 
         array (
             't1st3\\' => 6,
+        ),
+        'Y' => 
+        array (
+            'YoHang88\\LetterAvatar\\' => 22,
         ),
         'W' => 
         array (
@@ -49,11 +53,16 @@ class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
         array (
             'Leafo\\ScssPhp\\' => 14,
         ),
+        'I' => 
+        array (
+            'Intervention\\Image\\' => 19,
+        ),
         'H' => 
         array (
             'Http\\Promise\\' => 13,
             'Http\\Message\\' => 13,
             'Http\\Discovery\\' => 15,
+            'Http\\Client\\Curl\\' => 17,
             'Http\\Client\\Common\\' => 19,
             'Http\\Client\\' => 12,
             'Http\\Adapter\\Guzzle6\\' => 21,
@@ -78,6 +87,10 @@ class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
         't1st3\\' => 
         array (
             0 => __DIR__ . '/..' . '/t1st3/php-json-minify/src/t1st3',
+        ),
+        'YoHang88\\LetterAvatar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yohang88/letter-avatar/src',
         ),
         'WhichBrowser\\' => 
         array (
@@ -116,6 +129,10 @@ class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
         array (
             0 => __DIR__ . '/..' . '/leafo/scssphp/src',
         ),
+        'Intervention\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
         'Http\\Promise\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-http/promise/src',
@@ -128,6 +145,10 @@ class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
         'Http\\Discovery\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-http/discovery/src',
+        ),
+        'Http\\Client\\Curl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/curl-client/src',
         ),
         'Http\\Client\\Common\\' => 
         array (
@@ -213,6 +234,10 @@ class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
         ),
         'H' => 
         array (
+            'Handlebars' => 
+            array (
+                0 => __DIR__ . '/..' . '/xamin/handlebars.php/src',
+            ),
             'HTMLPurifier' => 
             array (
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
@@ -234,10 +259,10 @@ class ComposerStaticInitdc3d756b09e56e386c98d22248d033e5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdc3d756b09e56e386c98d22248d033e5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdc3d756b09e56e386c98d22248d033e5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitdc3d756b09e56e386c98d22248d033e5::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitdc3d756b09e56e386c98d22248d033e5::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784::$classMap;
 
         }, null, ClassLoader::class);
     }

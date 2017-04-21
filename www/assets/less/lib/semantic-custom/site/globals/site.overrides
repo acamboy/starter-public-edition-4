@@ -3,16 +3,27 @@
 *******************************/
 
 
+/* Force <pre> and <code> Tags to Word Wrap */
+
+code, pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/* End Force <pre> and <code> Tags to Word Wrap */
+
+
 /* Colored Texts */
 
 // See https://github.com/Semantic-Org/Semantic-UI/issues/1885
 // Author: https://github.com/kamalkhan
 // Example: <span class="red text">I am red!</span>
-@text-colors: blue, green, orange, pink, purple, red, teal, yellow, black, grey, white;
+@text-colors: red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, black, white;
 .text {
     .-(@i: length(@text-colors)) when (@i > 0) {
         @c: extract(@text-colors, @i);
-        &.@{c} { color: @@c }
+        &.@{c} { color: @@c !important }
         .-((@i - 1));
     }.-;
 }

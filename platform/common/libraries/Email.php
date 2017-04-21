@@ -2,13 +2,13 @@
 
 /**
  * CodeIgniter compatible email-library powered by PHPMailer.
- * Version: 1.2.15
- * @author Ivan Tcholakov <ivantcholakov@gmail.com>, 2012-2016.
+ * Version: 1.2.21
+ * @author Ivan Tcholakov <ivantcholakov@gmail.com>, 2012-2017.
  * @license The MIT License (MIT), http://opensource.org/licenses/MIT
  * @link https://github.com/ivantcholakov/codeigniter-phpmailer
  *
- * Tested on CodeIgniter 3.1.2+ (December 9th, 2016) and
- * PHPMailer Version 5.2.17 (December 9th, 2016).
+ * Tested on CodeIgniter 3.1.3+ (March 15th, 2017) and
+ * PHPMailer Version 5.2.23 (March 15th, 2017).
  */
 
 class Email extends CI_Email {
@@ -289,12 +289,13 @@ class Email extends CI_Email {
                 $this->validate_email($to);
             }
 
-            reset($names);
+            $i = 0;
 
             foreach ($to as $address) {
 
-                list($key, $name) = each($names);
-                $this->phpmailer->addAddress($address, $name);
+                $this->phpmailer->addAddress($address, $names[$i]);
+
+                $i++;
             }
 
         } else {
@@ -317,12 +318,13 @@ class Email extends CI_Email {
                 $this->validate_email($cc);
             }
 
-            reset($names);
+            $i = 0;
 
             foreach ($cc as $address) {
 
-                list($key, $name) = each($names);
-                $this->phpmailer->addCC($address, $name);
+                $this->phpmailer->addCC($address, $names[$i]);
+
+                $i++;
             }
 
         } else {
@@ -345,12 +347,13 @@ class Email extends CI_Email {
                 $this->validate_email($bcc);
             }
 
-            reset($names);
+            $i = 0;
 
             foreach ($bcc as $address) {
 
-                list($key, $name) = each($names);
-                $this->phpmailer->addBCC($address, $name);
+                $this->phpmailer->addBCC($address, $names[$i]);
+
+                $i++;
             }
 
         } else {

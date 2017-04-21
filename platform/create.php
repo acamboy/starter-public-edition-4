@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2016, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  * @package     CodeIgniter
  * @author      EllisLab Dev Team
  * @copyright   Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright   Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
+ * @copyright   Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
  * @license     http://opensource.org/licenses/MIT    MIT License
  * @link        https://codeigniter.com
  */
@@ -432,6 +432,10 @@ file_exists($cache_path) OR @mkdir($cache_path, 0755, TRUE);
 // For HTMLPurifier, no trailing slash.
 define('HTMLPURIFIER_CACHE_SERIALIZER_PATH', WRITABLEPATH.'htmlpurifier');
 file_exists(HTMLPURIFIER_CACHE_SERIALIZER_PATH) OR @mkdir(HTMLPURIFIER_CACHE_SERIALIZER_PATH, 0755, TRUE);
+
+// For Handlebars, with a trailing slash.
+define('HANDLEBARS_CACHE', WRITABLEPATH.'handlebars/'.APPNAME.'/');
+file_exists(HANDLEBARS_CACHE) OR @mkdir(HANDLEBARS_CACHE, 0755, TRUE);
 
 // For Mustache, with a trailing slash.
 define('MUSTACHE_CACHE', WRITABLEPATH.'mustache/'.APPNAME.'/');
