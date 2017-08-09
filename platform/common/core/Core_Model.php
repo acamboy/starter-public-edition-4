@@ -491,7 +491,7 @@ class Core_Model extends CI_Model
 
             $this->_database->insert($this->_table);
 
-            $insert_id = $this->_database->insert_id();
+            $insert_id = $this->primary_key != '' ? $this->_database->insert_id() : null;
 
             $this->trigger('after_create', $insert_id);
 
@@ -566,7 +566,7 @@ class Core_Model extends CI_Model
 
             $result = $this->_database->update($this->_table);
 
-            $this->trigger('after_update', array($data, $result));
+            $this->trigger('after_update', array($data, $result, $primary_value));
 
             $this->_reset_state();
 
@@ -610,7 +610,7 @@ class Core_Model extends CI_Model
 
             $result = $this->_database->update($this->_table);
 
-            $this->trigger('after_update', array($data, $result));
+            $this->trigger('after_update', array($data, $result, $primary_values));
 
             $this->_reset_state();
 

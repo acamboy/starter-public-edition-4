@@ -1,8 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed.');
 
 /**
- * @author Ivan Tcholakov <ivantcholakov@gmail.com>, 2016
+ * @author Ivan Tcholakov <ivantcholakov@gmail.com>, 2016-2017
  * @license The MIT License, http://opensource.org/licenses/MIT
+ *
+ * See also https://github.com/WhichBrowser/Parser
  */
 
 class Which_browser {
@@ -33,10 +35,7 @@ class Which_browser {
             ? $config['raw_info']
             : get_instance()->input->request_headers();
 
-        //$this->wb_parser = new WhichBrowser\Parser($this->_get_raw_info($raw_info));
-        // Still keeping the PHP 5.2 syntax:
-        $reflection = new ReflectionClass('WhichBrowser\Parser');
-        $this->wb_parser = $reflection->newInstance($raw_info);
+        $this->wb_parser = new \WhichBrowser\Parser($raw_info);
 
         return $this;
     }
@@ -64,10 +63,7 @@ class Which_browser {
 
         $this->with_clause = true;
 
-        //$this->wb_parser_2 = new WhichBrowser\Parser($raw_info);
-        // Still keeping the PHP 5.2 syntax:
-        $reflection = new ReflectionClass('WhichBrowser\Parser');
-        $this->wb_parser_2 = $reflection->newInstance($raw_info);
+        $this->wb_parser_2 = new \WhichBrowser\Parser($raw_info);
 
         return $this;
     }

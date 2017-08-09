@@ -14,12 +14,12 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        '7e702cccdb9dd904f2ccf22e5f37abae' => __DIR__ . '/..' . '/facebook/php-sdk-v4/src/Facebook/polyfills.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         't' => 
         array (
+            'tubalmartin\\CssMin\\' => 19,
             't1st3\\' => 6,
         ),
         'Y' => 
@@ -32,6 +32,8 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
         ),
         'T' => 
         array (
+            'Twig\\Extensions\\' => 16,
+            'Twig\\' => 5,
             'Test\\Markdownify\\' => 17,
         ),
         'S' => 
@@ -73,10 +75,6 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
-        'F' => 
-        array (
-            'Facebook\\' => 9,
-        ),
         'C' => 
         array (
             'Clue\\StreamFilter\\' => 18,
@@ -84,6 +82,10 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
     );
 
     public static $prefixDirsPsr4 = array (
+        'tubalmartin\\CssMin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tubalmartin/cssmin/src',
+        ),
         't1st3\\' => 
         array (
             0 => __DIR__ . '/..' . '/t1st3/php-json-minify/src/t1st3',
@@ -96,6 +98,14 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
         array (
             0 => __DIR__ . '/..' . '/whichbrowser/parser/src',
             1 => __DIR__ . '/..' . '/whichbrowser/parser/tests/src',
+        ),
+        'Twig\\Extensions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/extensions/src',
+        ),
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
         'Test\\Markdownify\\' => 
         array (
@@ -174,10 +184,6 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'Facebook\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/facebook/php-sdk-v4/src/Facebook',
-        ),
         'Clue\\StreamFilter\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
@@ -232,6 +238,13 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
                 0 => __DIR__ . '/..' . '/fg/multiplayer/lib',
             ),
         ),
+        'L' => 
+        array (
+            'Less' => 
+            array (
+                0 => __DIR__ . '/..' . '/oyejorge/less.php/lib',
+            ),
+        ),
         'H' => 
         array (
             'Handlebars' => 
@@ -252,6 +265,7 @@ class ComposerStaticInit7ec88c9c84ecdbd075c7338e7e8fd784
         'PHPMailerOAuthGoogle' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmaileroauthgoogle.php',
         'POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.pop3.php',
         'SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.smtp.php',
+        'lessc' => __DIR__ . '/..' . '/oyejorge/less.php/lessc.inc.php',
         'ntlm_sasl_client_class' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/ntlm_sasl_client.php',
         'phpmailerException' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
     );

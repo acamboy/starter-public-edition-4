@@ -51,6 +51,69 @@ class MX_Router extends CI_Router
 
     protected $module;
 
+    // --------------------------------------------------------------------
+
+    /**
+     * Class constructor
+     *
+     * Runs the route mapping function.
+     *
+     * @param    array    $routing    (Currently not used)
+     * @return    void
+     */
+    public function __construct($routing = NULL)
+    {
+        $this->config =& load_class('Config', 'core');
+        $this->uri =& load_class('URI', 'core');
+
+        $this->enable_query_strings = ( ! is_cli() && $this->config->item('enable_query_strings') === TRUE);
+
+        log_message('info', 'Router Class Initialized');
+    }
+    // --------------------------------------------------------------------
+
+    /**
+     * Set default controller
+     *
+     * @return    void
+     */
+    protected function _set_default_controller()
+    {
+        if (empty($this->default_controller))
+        {
+            show_error('Unable to determine what should be displayed. A default route has not been specified in the routing file.');
+        }
+
+        // Is the method being specified?
+        if (sscanf($this->default_controller, '%[^/]/%s', $class, $method) !== 2)
+        {
+            $method = 'index';
+        }
+
+        // Modified by Ivan Tcholakov, 19-JAN-2014.
+        // TODO: This is for supporting HMVC library, resolve at first chance.
+        //if ( ! file_exists(APPPATH.'controllers/'.$this->directory.ucfirst($class).'.php'))
+        //{
+        //    // This will trigger 404 later
+        //    return;
+        //}
+        //
+        //$this->set_class($class);
+        //$this->set_method($method);
+        $this->_set_request(array($class, $method));
+        //
+
+        // Assign routed segments, index starting from 1
+        $this->uri->rsegments = array(
+            1 => $class,
+            2 => $method
+        );
+
+        log_message('debug', 'No URI present. Default controller set.');
+    }
+
+    // --------------------------------------------------------------------
+
     public function fetch_module() {
 
         return $this->module;
@@ -494,15 +557,16 @@ class MX_Router extends CI_Router
     {
         // Added by Ivan Tcholakov, 14-MAR-2014.
         // Resolving the language.
-        // The same check has been placed in locate() method too.
         $segments = $this->uri->segments;
+
+        $current_language = $this->config->item('language');
 
         if (!empty($segments)) {
 
             if ($this->config->valid_language_uri_segment($segments[0])) {
 
                 $this->language_uri_segment = $segments[0];
-                $this->config->set_current_language($this->config->language_by_uri_segment($this->language_uri_segment));
+                $current_language = $this->config->language_by_uri_segment($this->language_uri_segment);
                 array_shift($segments);
 
                 // Added by Ivan Tcholakov, 11-JAN-2016.
@@ -515,6 +579,8 @@ class MX_Router extends CI_Router
                 }
             }
         }
+
+        $this->config->set_current_language($current_language);
         //
 
         // Turn the segment array into a URI string

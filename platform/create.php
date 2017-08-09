@@ -382,20 +382,6 @@ function & get_db_instance($connection_group = null)
 
 /*
  * ------------------------------------------------------
- *  Instantiate the hooks class
- * ------------------------------------------------------
- */
-$EXT =& load_class('Hooks', 'core');
-
-/*
- * ------------------------------------------------------
- *  Is there a "pre_system" hook?
- * ------------------------------------------------------
- */
-$EXT->call_hook('pre_system');
-
-/*
- * ------------------------------------------------------
  *  Instantiate the config class
  * ------------------------------------------------------
  *
@@ -414,6 +400,21 @@ if (isset($assign_to_config) && is_array($assign_to_config))
         $CFG->set_item($key, $value);
     }
 }
+
+/*
+ * ------------------------------------------------------
+ *  Instantiate the hooks class
+ * ------------------------------------------------------
+ */
+$EXT =& load_class('Hooks', 'core');
+
+/*
+ * ------------------------------------------------------
+ *  Is there a "pre_system" hook?
+ * ------------------------------------------------------
+ */
+$EXT->call_hook('pre_system');
+
 
 /*
  * ------------------------------------------------------
@@ -783,7 +784,7 @@ if (NORMAL_MVC_EXECUTION) {
          * ReflectionMethod::isConstructor() is the ONLY reliable check,
          * knowing which method will be executed as a constructor.
          */
-        elseif ( ! is_callable(array($class, $method)) && strcasecmp($class, $method) === 0)
+        elseif ( ! is_callable(array($class, $method)))
         {
             $reflection = new ReflectionMethod($class, $method);
             if ( ! $reflection->isPublic() OR $reflection->isConstructor())

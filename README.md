@@ -142,14 +142,13 @@ For CodeIgniter system files, third-party libraries, components, etc.:
 Features
 --------
 
-* CodeIgniter 3, https://codeigniter.com/, https://github.com/bcit-ci/CodeIgniter
+* CodeIgniter 3, https://codeigniter.com/, https://github.com/bcit-ci/CodeIgniter , installed by using Composer.
 * On a web-server you can place your site (www folder) within a subdirectory.
 * Codeigniter Cross Modular Extensions - XHMVC,
 https://bitbucket.org/xperez/codeigniter-cross-modular-extensions-xhmvc,
 http://www.4amics.com/x.perez/2013/06/xhmvc-common-modular-extensions/ (only the essential piece of code).
 * Support for the old CI 2.x class/file name convention. When you port your older libraries, models, and controllers,
 you would not be forced to rename them according to the new strict "ucfirst" naming convention.
-* Native PHP session support by default.
 * Modular Extensions - HMVC for CodeIgniter, https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc
 * Enhanced bootsrapping process, see the content of the folder platform/core/bootstrap/.
 * In addition to the normal MVC execution, it is possible to run non-MVC scripts, look at the folder www/non-mvc/ for examples.
@@ -409,7 +408,6 @@ The copied files can be modified/customized. See https://github.com/ivantcholako
 * JSMinPlus - a JavaScript minifier, https://github.com/mrclay/minify/blob/2.2.0/min/lib/JSMinPlus.php
 * less.js script for client-side usage (for learning and development purposes, for production compile less assets before deploying), https://github.com/less/less.js
 * Ellipsis (jQuery version) - A plugin to truncate strings that are too long, https://github.com/danbeam/ellipsis/
-* Facebook PHP SDK v5 for CodeIgniter - Library for integration of Facebook PHP SDK v5 with CodeIgniter 3, https://github.com/darkwhispering/facebook-sdk-codeigniter
 * Roave Security Advisories - This package ensures that your application doesn't have installed dependencies with known security vulnerabilities, https://github.com/Roave/SecurityAdvisories
 * Requests for PHP - A HTTP library written in PHP, for human beings, https://github.com/rmccue/Requests, http://requests.ryanmccue.info
 * Pjax jQuery plugin - pushState + ajax = pjax, https://github.com/defunkt/jquery-pjax, http://pjax.herokuapp.com
@@ -451,6 +449,36 @@ A contact form has been created that with minimal adaptation you may use directl
 If you have no previous experience with CodeIgniter, get familiar with its User Guide first:
 https://www.codeigniter.com/user_guide/
 
+Installed Composer Packages
+---------------------------
+
+| Package                             | Description                                                        | Usage                                             |
+|:------------------------------------|:-------------------------------------------------------------------|:--------------------------------------------------|
+| codeigniter/framework               | CodeIgniter 3                                                      | Everywhere                                        |
+| roave/security-advisories           | Blocks installing packages with known security vulnerabilities     | Composer                                          |
+| paragonie/random_compat             | PHP 5.x polyfill for random_bytes() and random_int() from PHP 7    | CodeIgniter, other components                     |
+| fg/multiplayer                      | Builds customizable video embed codes from any URL                 | Multiplayer library                               |
+| leafo/scssphp                       | A compiler for SCSS written in PHP                                 | Parser 'scss' driver                              |
+| guzzlehttp/guzzle                   | A HTTP client library                                              | Playground, REST service test                     |
+| whichbrowser/parser                 | Useragent sniffing library for PHP                                 | Which_browser library                             |
+| erusev/parsedown                    | Parser for Markdown                                                | Parser 'markdown' driver                          |
+| erusev/parsedown-extra              | An extension of Parsedown that adds support for Markdown Extra     | Parser 'markdown' driver                          |
+| pixel418/markdownify                | A HTML to Markdown converter                                       | Parser 'markdownify' driver                       |
+| mustache/mustache                   | A Mustache template engine implementation in PHP                   | Parser 'mustache' driver                          |
+| netcarver/textile                   | Textile markup language parser                                     | Parser 'textile' driver                           |
+| twig/twig                           | Twig template language for PHP                                     | Parser 'twig' driver                              |
+| twig/extensions                     | Common additional features for Twig                                | Parser 'twig' driver                              |
+| ezyang/htmlpurifier                 | Standards compliant HTML filter written in PHP                     | admin and user HTML filters for the online editor |
+| rmccue/requests                     | A HTTP library written in PHP                                      | Playground, REST service test                     |
+| t1st3/php-json-minify               | A JSON minifier                                                    | Parser 'jsonmin' driver                           |
+| php-http/*                          | An abstract HTTP client and its drivers/dependencies               | Playground, REST service test                     |
+| matthiasmullie/minify               | CSS & JS minifier                                                  | Parser 'cssmin' and 'jsmin' drivers               |
+| phpmailer/phpmailer                 | An email creation and transfer component for PHP                   | The custom Email library                          |
+| yohang88/letter-avatar              | Generates user avatars based on name initials                      | userphotos application                            |
+| intervention/image                  | Image handling and manipulation library                            | yohang88/letter-avatar                            |
+| tubalmartin/cssmin                  | A PHP port of the YUI CSS compressor                               | Parser 'cssmin' driver                            |
+| oyejorge/less.php                   | A PHP port of the Javascript version of LESS                       | Parser 'less' driver                              |
+
 Real Life Usage
 ---------------
 
@@ -476,6 +504,8 @@ Real Life Usage
 * http://art-tochka.com/ - an online shop, gifts, migrated from starter-public-edition-3, designer: Irina Stancheva (still Bootstrap-based design)
 * http://viapontica123.bg - a small hotel, designer: Irina Stancheva
 * http://ivetfashion.com - a model management company, designer: Irina Stancheva
+* http://geopro2009.com - geodetic services, designer: Irina Stancheva
+* http://trenchovahouse.com - a family hotel, designer: Irina Stancheva
 
 Reported by Webnice Ltd., http://webnicebg.com
 
@@ -498,6 +528,8 @@ Reported by Webnice Ltd., http://webnicebg.com
 * http://rosifashion.com - a womenswear provider
 * http://shop.rosifashion.com - a womenswear shop
 * http://mkferavita.com - herbal products
+* https://stefanystyle.com - a furniture manufacturer
+* http://rusalkakiten.com - a family hotel
 
 Reported by Krishna Guragai, @krishnaguragain
 
